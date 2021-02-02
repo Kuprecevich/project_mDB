@@ -22,5 +22,32 @@ const movieDB = {
         "Одержимость",
         "Скотт Пилигрим против..."
     ]
-};
+},
+       adv = document.querySelectorAll('.promo__adv img'),
+       poster = document.querySelector('.promo__bg'), 
+       genre = poster.querySelector('.promo__genre'),
+       movielist = document.querySelector('.promo__interactive-list');
 
+//1.
+adv.forEach(item =>{
+    item.remove()
+});
+
+//2.
+genre.textContent = 'Драмма';
+
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+
+//3.
+movielist.innerHTML = '';
+
+movieDB.movies.sort();
+
+
+ movieDB.movies.forEach((film, i) =>{
+     movielist.innerHTML +=`
+     <li class="promo__interactive-item">${i + 1} ${film}
+                            <div class="delete"></div>
+     </li>
+     `;
+ });
